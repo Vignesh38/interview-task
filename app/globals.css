@@ -20,6 +20,12 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.container {
+  max-width: 1210px;
+  margin: 0 auto;
+}
+
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
