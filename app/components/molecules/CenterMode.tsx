@@ -2,8 +2,6 @@
 
 import React, { useState } from "react";
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import { MdArrowBackIos, MdArrowForwardIos } from "react-icons/md";
 import SpeechBubble from "../atoms/SpeechBubble/Speechbubble";
 import {FadeInWrapper} from "../atoms/animation/FadeInComponent"
