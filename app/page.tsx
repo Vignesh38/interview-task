@@ -1,6 +1,5 @@
 import HomePage from "./components/pages/homepage";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+
 
 // import Nav from "./components/pages/Header";
 // import navbars from "./components/organisms/Navbar";
