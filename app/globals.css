@@ -25,9 +25,94 @@ body {
   margin: 0 auto;
 }
 
+.embla {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.embla__container {
+  display: flex;
+  transition: transform 0.3s ease;
+}
+
+.embla__slide {
+  flex: 0 0 auto;
+  width: 60%; /* Ensure the slide takes full width */
+  margin-right: 16px; /* Optional: Add some space between slides */
+}
+
+/* Optional: Add styles for buttons */
+.embla__buttons {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-50%);
+}
+
+.embla__button {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+}
+.embla {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.embla__container {
+  display: flex;
+  transition: transform 0.3s ease;
+}
+
+
+/* Optional: Add styles for buttons */
+.embla__buttons {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-50%);
+}
+
+.embla__button {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+}
+
+
+.embla__slide {
+  transform: scale(0.8) translateY(0px); /* Default scale and position */
+  transition: transform 0.1s ease;
+}
+
+.embla__slide.active-slide {
+  transform: scale(1) translateY(-20px); /* Highlight active slide */
+}
+
+.embla__slide.nearby-slide {
+  transform: scale(0.9); /* Slightly enlarge nearby slides */
+  opacity: 0.8; /* Slightly fade out the nearby slides */
+}
+
+.embla__slide:not(.active-slide):not(.nearby-slide) {
+  opacity: 0.6; /* Reduce visibility of non-focused slides */
+}
+
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
 }
+
+
