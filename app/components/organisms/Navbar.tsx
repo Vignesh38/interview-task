@@ -10,7 +10,7 @@ export default function Menu() {
 
   return (
     <nav className="navigation">
-      <div className="grid grid-cols-1 sm:grid-cols-[15%_70%_15%] gap-4 mx-auto px-4 py-4 justify-between items-center">
+      <div className="grid grid-cols-3 sm:grid-cols-[15%_70%_15%] gap-4 mx-auto px-4 py-4 justify-between items-center">
         {/* Logo */}
         <div className="text-xl font-bold">
           <img src="logo/logo.svg" className="logo"></img>
@@ -35,7 +35,7 @@ export default function Menu() {
                   dropdownOpen ? "rotate-180" : "rotate-0"
                 }`}
                 fill="none"
-                stroke="currentColor"
+                stroke="white"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -64,11 +64,11 @@ export default function Menu() {
 
 
 
-        <div className="cta flex justify-end">
+        <div className="cta flex justify-end ">
         <Button
         text="문의하기"
         url="https://google.com"
-        className="mt-4"
+        className="mt-4 hidden md:block"
       />
         </div>
 
@@ -76,7 +76,7 @@ export default function Menu() {
 
 
         {/* Hamburger Menu */}
-        <div className="md:hidden">
+        <div className="md:hidden flex items-end justify-end">
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="text-gray-800 focus:outline-none"
@@ -85,7 +85,8 @@ export default function Menu() {
               <svg
                 className="w-6 h-6"
                 fill="none"
-                stroke="currentColor"
+                color="text-white"
+                stroke="white"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -100,7 +101,7 @@ export default function Menu() {
               <svg
                 className="w-6 h-6"
                 fill="none"
-                stroke="currentColor"
+                stroke="white"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -118,7 +119,7 @@ export default function Menu() {
 
       {/* Mobile Dropdown */}
       {isOpen && (
-        <div className="md:hidden bg-white">
+        <div className="md:hidden bg-white w-full p-5">
           <Link href="/">
             Home
           </Link>
@@ -128,9 +129,25 @@ export default function Menu() {
           <div className="relative">
             <button
               onClick={() => setDropdownOpen(!dropdownOpen)}
-              className="w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-100"
+              className="w-full flex flex-row gap-4 items-center text-left px-0 py-2 text-gray-800 hover:bg-gray-100"
             >
-              Services
+              Services 
+              <svg
+                className={`w-4 h-4 transform transition-transform ${
+                  dropdownOpen ? "rotate-180" : "rotate-0"
+                }`}
+                fill="none"
+                stroke="black"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M19 9l-7 7-7-7"
+                ></path>
+              </svg>
             </button>
             {dropdownOpen && (
               <div className="pl-4">

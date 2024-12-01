@@ -33,13 +33,13 @@ body {
 
 .embla__container {
   display: flex;
-  transition: transform 0.3s ease;
+  transition: transform 0.1s ease;
 }
 
 .embla__slide {
   flex: 0 0 auto;
-  width: 60%; /* Ensure the slide takes full width */
-  margin-right: 16px; /* Optional: Add some space between slides */
+  width: 50%; /* Ensure the slide takes full width */
+  margin-right: 0; /* Optional: Add some space between slides */
 }
 
 /* Optional: Add styles for buttons */
@@ -48,7 +48,7 @@ body {
   justify-content: space-between;
   position: absolute;
   top: 50%;
-  width: 100%;
+  width: 86%;
   transform: translateY(-50%);
 }
 
@@ -63,22 +63,31 @@ body {
   position: relative;
   overflow: hidden;
   width: 100%;
+  margin: 0 auto;
+  padding: 30px 44px;
 }
 
 .embla__container {
   display: flex;
-  transition: transform 0.3s ease;
+  transition: transform 0.1s ease-in-out;
 }
 
+.embla__slide.usp {
+  width: 200px;
+  margin-right: 26px;
+}
 
-/* Optional: Add styles for buttons */
-.embla__buttons {
-  display: flex;
-  justify-content: space-between;
-  position: absolute;
-  top: 50%;
+.embla.usp {
+  position: relative;
+  overflow: hidden;
   width: 100%;
-  transform: translateY(-50%);
+  margin: 0 auto;
+  padding: 30px 0;
+  left: 12%;
+}
+
+.embla__slide.usp.flex-shrink-0.w-full {
+  opacity: 1;
 }
 
 .embla__button {
@@ -89,14 +98,25 @@ body {
   cursor: pointer;
 }
 
+.slick-list {
+  padding: 50px 0 !important;
+  padding-top: 85px !important;
+}
 
 .embla__slide {
-  transform: scale(0.8) translateY(0px); /* Default scale and position */
+  transform: scale(0.8) translateY(0) translateX(26px);
   transition: transform 0.1s ease;
 }
 
 .embla__slide.active-slide {
-  transform: scale(1) translateY(-20px); /* Highlight active slide */
+  transform: scale(1) translateY(-20px) translateX(53%);
+  z-index: 1;
+}
+
+.embla__slide.usp {
+  width: 300px;
+  margin-right: 26px;
+  transform: scale(1);
 }
 
 .embla__slide.nearby-slide {
@@ -108,6 +128,14 @@ body {
   opacity: 0.6; /* Reduce visibility of non-focused slides */
 }
 
+.embla__slide.prev-slide {
+  transform: scale(0.9) translateX(120%);
+}
+
+.embla__slide.next-slide {
+  /* Style for the next slide */
+  transform: scale(0.9) translateX(-5%);
+}
 
 @layer utilities {
   .text-balance {
@@ -115,4 +143,35 @@ body {
   }
 }
 
+@media only screen and (max-width: 767px) {
+  .slider-container {
+    position: relative;
+    left: 0;
+  }
+  .slick-initialized .slick-slide {
+    display: block;
+    margin-left: 5px;
+  }
+  .slick-track {
+    height: auto !important;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+  }
+}
 
+@media only screen and (min-width: 1023px) {
+  .slick-slide {
+    width: 226px !important;
+  }
+
+  .slider-container {
+    position: relative;
+    left: 46px;
+  }
+
+  .slick-slide {
+    width: 269px !important;
+    margin-left: -49px;
+  }
+}

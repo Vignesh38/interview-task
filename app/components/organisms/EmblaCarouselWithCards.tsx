@@ -8,6 +8,11 @@ interface Card {
   id: number;
   title: string;
   description: string;
+  year: string;
+  label1: string;
+  label2: string;
+  label3: string;
+  label4: string;
   imageUrl: string;
 }
 
@@ -19,7 +24,7 @@ const EmblaCarouselWithCards: React.FC<EmblaCarouselWithCardsProps> = ({ cards }
   const [emblaRef, embla] = useEmblaCarousel({
     loop: false,
     align: "start", // Ensures proper alignment for multiple slides
-    dragFree: true,
+    dragFree: false,
   });
 
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -31,9 +36,9 @@ const EmblaCarouselWithCards: React.FC<EmblaCarouselWithCardsProps> = ({ cards }
       if (embla.canScrollNext()) {
         embla.scrollNext();
       } else {
-        embla.scrollTo(0); // Restart from the first slide if no next slide exists
+        embla.scrollTo(1); // Restart from the first slide if no next slide exists
       }
-    }, 1000); // Autoplay interval
+    }, 100000000000000000); // Adjust autoplay interval as needed
 
     embla.on("select", () => setSelectedIndex(embla.selectedScrollSnap()));
 
@@ -46,23 +51,34 @@ const EmblaCarouselWithCards: React.FC<EmblaCarouselWithCardsProps> = ({ cards }
         {cards.map((card, index) => (
           <div
             key={card.id}
-            className={`embla__slide flex-[0_0_20%] p-2 transition-transform duration-300 ${
+            className={`embla__slide flex-[0_0_30%] p-2 transition-transform duration-300 ${
               index === selectedIndex
                 ? "active-slide"
-                : index === selectedIndex - 1 || index === selectedIndex + 1
-                ? "nearby-slide"
+                : index === selectedIndex - 1
+                ? "prev-slide" // Class for the previous slide
+                : index === selectedIndex + 1
+                ? "next-slide" // Class for the next slide
                 : ""
             }`}
           >
-            <div className="card bg-white shadow-lg rounded-lg overflow-hidden">
+            <div className="card bg-white shadow-lg rounded-lg overflow-hidden pt-4">
               <img
                 src={card.imageUrl}
                 alt={card.title}
-                className="w-full h-48 object-cover"
+                className="w-32 h-auto justify-center mx-auto my-0"
               />
-              <div className="p-4">
-                <h2 className="text-lg font-semibold">{card.title}</h2>
-                <p className="text-gray-600">{card.description}</p>
+              <div className="p-4 text-center">
+                <h2 className="text-lg font-semibold text-center">{card.title}</h2>
+                <div className="flex flex-wrap flex-row justify-center">
+                <p className="text-customBlue font-semibold">{card.description}</p>
+                <p className="text-customBlue font-extrabold">{card.year}</p>
+                </div>
+                <div className="flex flex-wrap flex-row mt-6 justify-center gap-2">
+                  <p className="text-gray-600 font-semibold">{card.label1}</p>
+                  <p className="text-gray-600 font-semibold">{card.label2}</p>
+                  <p className="text-gray-600 font-semibold"> {card.label3} </p>
+                  <p className="text-gray-600 font-semibold">{card.label4}</p>
+                </div>
               </div>
             </div>
           </div>
@@ -73,13 +89,13 @@ const EmblaCarouselWithCards: React.FC<EmblaCarouselWithCardsProps> = ({ cards }
       <div className="embla__buttons flex justify-between mt-4">
         <button
           onClick={() => embla && embla.scrollPrev()}
-          className="arrow bg-blue-500 text-white rounded-full p-2"
+          className="arrow"
         >
           <MdArrowBackIos />
         </button>
         <button
           onClick={() => embla && embla.scrollNext()}
-          className="arrow bg-blue-500 text-white rounded-full p-2"
+          className="arrow"
         >
           <MdArrowForwardIos />
         </button>

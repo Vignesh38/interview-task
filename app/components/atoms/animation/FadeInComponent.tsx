@@ -1,11 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { fadeInUp } from "./animation";
+import { fadeInUp } from "./FadeIn";
 import { useInView } from "./UseInView";
 
-
-export const FadeInUpWrapper = ({ children }: { children: React.ReactNode }) => {
+export const FadeInWrapper = ({ children }: { children: React.ReactNode }) => {
   const { ref, isInView } = useInView();
 
   return (
