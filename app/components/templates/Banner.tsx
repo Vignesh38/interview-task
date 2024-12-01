@@ -2,8 +2,6 @@ import React from "react";
 import SpeechBubble from "../atoms/SpeechBubble/Speechbubble";
 import { FadeInUpWrapper } from "../atoms/animation/FadeInUpComponent";
 import { FadeInWrapper } from "../atoms/animation/FadeInComponent";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import "../../globals.css";
 import CenterMode from "../molecules/CenterMode"
 
