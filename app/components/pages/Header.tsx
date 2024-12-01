@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Menu from "../organisms/Navbar";
 
 // import { fadeInUp, SlideUp } from "./atoms/animation/animation"

@@ -1,0 +1,54 @@
+import 'swiper/css'; // Core Swiper styles
+
+/* Embla Carousel Styles */
+.embla {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .embla__container {
+    display: flex;
+    transition: transform 0.3s ease;
+  }
+  .mySwiper {
+    width: 300px; /* Adjust based on your layout */
+    height: 400px; /* Adjust based on your layout */
+  }
+  
+  .embla__slide {
+    flex: 0 0 auto; /* Prevent the slides from shrinking */
+    width: 80%;
+    padding: 0 10px;
+  }
+  
+  .card {
+    width: 100%;
+    max-width: 300px;
+    margin: auto;
+  }
+  
+  .embla__buttons {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+  }
+  
+  .embla__button {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .embla__button--prev {
+    left: 10px;
+  }
+  
+  .embla__button--next {
+    right: 10px;
+  }
