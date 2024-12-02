@@ -143,6 +143,7 @@ body {
   }
 }
 
+
 @media only screen and (max-width: 767px) {
   .slider-container {
     position: relative;
@@ -151,6 +152,7 @@ body {
   .slick-initialized .slick-slide {
     display: block;
     margin-left: 5px;
+    width: 244px !important;
   }
   .slick-track {
     height: auto !important;
@@ -162,9 +164,12 @@ body {
 
 @media only screen and (min-width: 1023px) {
   .slick-slide {
-    width: 226px !important;
+    width: 270px !important;
   }
-
+  .slick-slide.slick-active.slick-center.slick-current {
+    z-index: 99999;
+    position: relative;
+  }
   .slider-container {
     position: relative;
     left: 46px;
